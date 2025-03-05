@@ -1,7 +1,11 @@
+from dotenv import load_dotenv
 import requests
 import os
 from collections import Counter
-access_token = ''
+
+load_dotenv()
+
+access_token = os.getenv("GITHUB_TOKEN")
 headers = {
     'Authorization': 'Bearer ' +access_token,
     'X-GitHub-Api-Version': '2022-11-28'
