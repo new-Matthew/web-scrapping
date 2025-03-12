@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 import requests
 import os
 from collections import Counter
-
+import pandas as pd
 load_dotenv()
 
 access_token = os.getenv("GITHUB_TOKEN")
@@ -12,7 +12,7 @@ headers = {
 }
 
 base_api = 'https://api.github.com'
-user = 'new-Matthew'
+user = 'alyssonwolfpoet'
 url = f'{base_api}/users/{user}/repos'
 response = requests.get(url, headers=headers)
 
@@ -41,10 +41,12 @@ print(f'Última URL consultada: {url_page}')
 name_repos = []
 
 for repo in repos_list:
-    print(repo['name'])
+    name_repos.append(repo['name'])
 
 lang_repos = []
 for repo in repos_list:
     lang_repos.append(repo['language'])
 
 print(Counter(lang_repos))
+print(name_repos)
+
