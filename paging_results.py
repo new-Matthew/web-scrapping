@@ -47,6 +47,13 @@ lang_repos = []
 for repo in repos_list:
     lang_repos.append(repo['language'])
 
-print(Counter(lang_repos))
-print(name_repos)
+def csv_storing(name_repo, language_repo, filename='github_data.csv'):
+    if os.path.exists(filename):
+        return f"O arquivo '{filename}' já existe. Nenhum novo arquivo foi criado."
 
+    data_obc = pd.DataFrame({'repos_name': name_repo, 'lang_name': language_repo})
+    data_obc.to_csv(filename, index=False)
+
+    return f"Arquivo '{filename}' criado com sucesso!"
+
+print(csv_storing(name_repo=name_repos, language_repo=lang_repos))
