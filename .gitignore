@@ -6,3 +6,4 @@ ENV/
 env.bak/
 venv.bak/
 github_data.csv
+step-by-step.txt
